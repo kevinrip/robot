@@ -128,7 +128,6 @@ const robotVacuum = class {
 
     render() {
         document.querySelector('#render').innerHTML = '';
-        document.querySelector('#direction').innerHTML = '';
         this.createTable();
         this.renderDirt();
         this.renderLocations();
@@ -162,7 +161,6 @@ const robotVacuum = class {
 
     renderLocations() {
         const renderElement = document.querySelector('#render');
-        const directionElement = document.querySelector('#direction');
 
         let opacity = .1;
 
@@ -183,9 +181,6 @@ const robotVacuum = class {
                     opacity += .03;
                 }
 
-                if (index > 0) {
-                    directionElement.innerHTML += this.vacuumInstructions[index - 1];
-                }
             }.bind(this), 500 * index);
         }.bind(this)
 
@@ -195,6 +190,9 @@ const robotVacuum = class {
     }
 
 }
+
+
+// functions triggered from index.html
 
 const parseInput = (input) => {
     let file = input.files[0];
